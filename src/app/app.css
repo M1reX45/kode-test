@@ -1,0 +1,12 @@
+@import '~assets/fonts';
+
+* {
+	font-family: 'Inter';
+}
+
+html,
+body,
+#root {
+	width: 100%;
+	height: 100%;
+}
