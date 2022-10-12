@@ -7,5 +7,5 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ url, isBig }) => {
-	return <SC.Avatar src={url} isBig={isBig} />
+	return <SC.Avatar src={url} $isBig={isBig} />
 }

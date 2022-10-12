@@ -2,16 +2,16 @@ import styled from 'styled-components'
 import { ReactComponent as Icon } from '~assets/svg/magnifying-glass.svg'
 
 interface MagnifyingGlassProps {
-	isActive?: boolean
+	$isActive?: boolean
 }
 
 export const MagnifyingGlass = styled(Icon)<MagnifyingGlassProps>(
-	({ theme, isActive }) => `
+	({ theme, $isActive }) => `
 	display: block;
 	cursor: pointer;
 	> path {
 		transition: fill 0.3s ease-in-out;
-		fill: ${isActive && theme.colors.content.primary};
+		fill: ${$isActive && theme.colors.content.primary};
 	}
 	&:hover {
 		> path {

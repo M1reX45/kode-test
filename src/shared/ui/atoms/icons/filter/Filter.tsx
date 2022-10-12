@@ -6,5 +6,5 @@ interface FilterProps {
 }
 
 export const Filter: FC<FilterProps> = ({ isActive }) => {
-	return <SC.Filter isActive={isActive} />
+	return <SC.Filter $isActive={isActive} />
 }

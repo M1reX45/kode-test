@@ -1,0 +1,1 @@
+export { DepartmentTabItem } from './DepartmentTabItem'

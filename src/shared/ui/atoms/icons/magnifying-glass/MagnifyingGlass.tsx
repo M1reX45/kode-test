@@ -5,6 +5,8 @@ interface MagnifyingGlassProps {
 	isActive?: boolean
 }
 
-export const MagnifyingGlass: FC<MagnifyingGlassProps> = ({ isActive }) => {
-	return <SC.MagnifyingGlass isActive={isActive} />
+export const MagnifyingGlass: FC<MagnifyingGlassProps> = ({
+	isActive = false
+}) => {
+	return <SC.MagnifyingGlass $isActive={isActive} />
 }

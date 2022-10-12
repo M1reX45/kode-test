@@ -16,7 +16,7 @@ export const Text: FC<TextProps> = ({
 	children
 }) => {
 	return (
-		<SC.Text type={type} color={color} weight={weight}>
+		<SC.Text $type={type} $color={color} $weight={weight}>
 			{children}
 		</SC.Text>
 	)
