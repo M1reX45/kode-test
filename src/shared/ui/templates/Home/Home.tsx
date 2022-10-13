@@ -1,16 +1,18 @@
+import { FC, ReactNode } from 'react'
 import * as SC from './Home.styled'
 import { Header } from '~ui/organisms'
-import { PersonListConnector } from '~features/persons/connector'
-import { ModalConnector } from '~features/modal/connector'
 
-export const Home = () => {
+interface HomeProps {
+	modal: ReactNode
+	personList: ReactNode
+}
+
+export const Home: FC<HomeProps> = ({ modal, personList }) => {
 	return (
 		<SC.Wrapper>
-			<ModalConnector />
+			{modal}
 			<Header />
-			<SC.Body>
-				<PersonListConnector />
-			</SC.Body>
+			<SC.Body>{personList}</SC.Body>
 		</SC.Wrapper>
 	)
 }
