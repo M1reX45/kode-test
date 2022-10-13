@@ -1,5 +1,8 @@
 # KODE Frontend 2022 :shipit:
 
+## GitHub Pages
+https://m1rex45.github.io/kode-test.github.io/
+
 #### Используемый стек технологий:
 
 -   Node v16.16.0
