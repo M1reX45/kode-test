@@ -5,14 +5,16 @@ import { Text } from '~ui/atoms'
 interface DeparmentTabItemProps {
 	children: string
 	isActive?: boolean
+	onClick: () => void
 }
 
 export const DepartmentTabItem: FC<DeparmentTabItemProps> = ({
 	children,
-	isActive
+	isActive,
+	onClick
 }) => {
 	return (
-		<SC.DepartmentTabItem $isActive={isActive}>
+		<SC.DepartmentTabItem $isActive={isActive} onClick={onClick}>
 			<Text>{children}</Text>
 		</SC.DepartmentTabItem>
 	)

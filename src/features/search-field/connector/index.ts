@@ -1,0 +1,1 @@
+export { SearchFieldConnector } from './SearchField'

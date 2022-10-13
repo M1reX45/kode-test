@@ -1,0 +1,1 @@
+export { ModalConnector } from './modal'

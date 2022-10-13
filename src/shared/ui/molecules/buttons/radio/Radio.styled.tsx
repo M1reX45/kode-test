@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Radio = styled.div`
+	max-width: fit-content;
+`
+
 export const Label = styled.label`
 	display: flex;
 	align-items: center;

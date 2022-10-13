@@ -6,8 +6,10 @@ module.exports = {
 	webpack: {
 		alias: {
 			'~assets': resolvePath('assets'),
+			'~pages': resolvePath('pages'),
+			'~features': resolvePath('features'),
 			'~types': resolvePath('shared/types'),
-			'~constants': resolvePath('shared/constants'),
+			'~core': resolvePath('shared/core'),
 			'~ui': resolvePath('shared/ui')
 		}
 	}

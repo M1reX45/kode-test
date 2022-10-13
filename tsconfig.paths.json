@@ -3,8 +3,10 @@
 		"baseUrl": "./src",
 		"paths": {
 			"~assets/*": ["./assets/*"],
+			"~pages/*": ["./pages/*"],
+			"~features/*": ["./features/*"],
+			"~core/*": ["./shared/core/*"],
 			"~types/*": ["./shared/types/*"],
-			"~constants/*": ["./shared/constants/*"],
 			"~ui/*": ["./shared/ui/*"]
 		}
 	}

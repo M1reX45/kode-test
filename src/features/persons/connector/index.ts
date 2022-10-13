@@ -1,0 +1,1 @@
+export { PersonListConnector } from './persons'

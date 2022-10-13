@@ -5,11 +5,17 @@ interface PersonItemProps {
 	$isColumn?: boolean
 }
 
+export const Wrapper = styled.div`
+	display: flex;
+	align-items: center;
+`
+
 export const PersonItem = styled.div<PersonItemProps>(
 	({ $isColumn }) => `
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	max-width: fit-content;
 	flex-direction: ${$isColumn && 'column'};
 	margin-bottom: ${$isColumn ? '24px' : '12px'};
 `

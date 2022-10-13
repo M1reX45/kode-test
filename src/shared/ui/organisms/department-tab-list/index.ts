@@ -1,0 +1,1 @@
+export { DepartmentTabList } from './DepartmentTabList'
