@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useStore } from 'effector-react'
-import { $error, fetchPersonsFx, $filteredPersons } from '../model'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { Responce } from '~types/api'
+import { PersonsController } from '~core/api/controllers'
+import { $filteredPersons, addPersonsToStore } from '../model'
 import { Errors } from '~ui/molecules'
 import { PersonList, SkeletonList } from '~ui/organisms'
 import { $sortType } from '~features/sort'
@@ -10,18 +13,30 @@ export const PersonListConnector = () => {
 	const filteredPersons = useStore($filteredPersons)
 	const currentDepartment = useStore($currentDepartment)
 	const sortType = useStore($sortType)
-	const isLoading = useStore(fetchPersonsFx.pending)
-	const isError = useStore($error)
+	const client = useQueryClient()
+
+	const { isLoading, isFetching, isError, refetch } = useQuery(
+		['persons', currentDepartment],
+		() => PersonsController.fetch(currentDepartment),
+		{
+			staleTime: 5 * 60 * 1000,
+			enabled: true,
+			refetchOnWindowFocus: false
+		}
+	)
+
+	const data = client.getQueryData<Responce>(['persons', currentDepartment])
 
 	useEffect(() => {
-		fetchPersonsFx(currentDepartment)
-	}, [currentDepartment])
+		data?.items ? addPersonsToStore(data.items) : addPersonsToStore([])
+	}, [data])
 
-	if (isError) return <Errors.Critical />
+	if ((isLoading || isFetching) && !isError) return <SkeletonList />
 
-	if (isLoading) return <SkeletonList />
+	if (isError && data === undefined)
+		return <Errors.Critical refetch={refetch} />
 
-	return !filteredPersons.length ? (
+	return filteredPersons.length === 0 ? (
 		<Errors.Empty />
 	) : (
 		<PersonList persons={filteredPersons} sortType={sortType} />

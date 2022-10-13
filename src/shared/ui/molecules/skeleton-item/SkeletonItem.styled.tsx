@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import * as SC from '../person-item/PersonItem.styled'
 
-export const SkeletonItem = styled(SC.PersonItem)``
+export const SkeletonItem = styled(SC.PersonItem)`
+	padding: 12px 0px;
+`
 
 export const Info = styled(SC.Info)``
 

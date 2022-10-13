@@ -7,7 +7,7 @@ interface SkeletonListProps {
 	amount?: number
 }
 
-export const SkeletonList: FC<SkeletonListProps> = ({ amount = 10 }) => {
+export const SkeletonList: FC<SkeletonListProps> = ({ amount = 6 }) => {
 	const array = new Array(amount).fill('')
 
 	return (

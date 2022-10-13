@@ -1,1 +1,1 @@
-export { fetchPersonsFx, $persons, $filteredPersons, $error } from './persons'
+export { $persons, $filteredPersons, addPersonsToStore } from './persons'

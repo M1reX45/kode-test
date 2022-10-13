@@ -1,1 +1,1 @@
-export { fetchPersons } from './api'
+export { PersonsController } from './controllers'
