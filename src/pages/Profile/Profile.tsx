@@ -1,7 +1,5 @@
-import { useParams } from 'react-router-dom'
+import { Profile as Template } from '~ui/templates'
 
 export const Profile = () => {
-	const { id } = useParams()
-
-	return <div>{id}</div>
+	return <Template />
 }

@@ -1,4 +1,5 @@
 import { FC, Fragment, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Person } from '~types/person'
 import { getDivider } from '~core/utils'
 import * as SC from './PersonList.styled'
@@ -11,6 +12,7 @@ interface PersonListProps {
 
 export const PersonList: FC<PersonListProps> = ({ persons, sortType }) => {
 	const [divider, setDivider] = useState(false)
+	const navigate = useNavigate()
 
 	return (
 		<SC.PersonList>
@@ -22,7 +24,13 @@ export const PersonList: FC<PersonListProps> = ({ persons, sortType }) => {
 					getDivider(persons[index - 1].birthday, person.birthday)
 						? (!divider && setDivider(true), (<YearDivider />))
 						: null}
-					<PersonItem person={person} sortType={sortType} />
+					<PersonItem
+						person={person}
+						sortType={sortType}
+						onClick={() =>
+							navigate(`/profile/${person.id}`, { state: person })
+						}
+					/>
 				</Fragment>
 			))}
 		</SC.PersonList>

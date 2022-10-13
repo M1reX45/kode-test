@@ -1,7 +1,7 @@
 import * as SC from './Home.styled'
+import { Header } from '~ui/organisms'
 import { PersonListConnector } from '~features/persons/connector'
 import { ModalConnector } from '~features/modal/connector'
-import { Header } from '~ui/organisms'
 
 export const Home = () => {
 	return (

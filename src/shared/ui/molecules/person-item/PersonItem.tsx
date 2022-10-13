@@ -1,31 +1,28 @@
 import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Person } from '~types/person'
+import { birthdayFormatter } from '~core/utils'
 import * as SC from './PersonItem.styled'
 import { Avatar, Text } from '~ui/atoms'
 
 interface PersonItemProps {
 	person: Person
 	isColumn?: boolean
-	sortType: 'abc' | 'birthday'
+	sortType?: 'abc' | 'birthday'
+	onClick?: () => void
 }
 
 export const PersonItem: FC<PersonItemProps> = ({
 	person,
 	isColumn,
-	sortType
+	sortType,
+	onClick
 }) => {
-	const { id, avatarUrl, firstName, lastName, userTag, position, birthday } =
+	const { avatarUrl, firstName, lastName, userTag, position, birthday } =
 		person
 
-	const navigate = useNavigate()
-
 	return (
-		<SC.Wrapper>
-			<SC.PersonItem
-				onClick={() => navigate(`/profile/${id}`)}
-				$isColumn={isColumn}
-			>
+		<SC.Wrapper $isColumn={isColumn}>
+			<SC.PersonItem onClick={onClick} $isColumn={isColumn}>
 				<Avatar url={avatarUrl} isBig={isColumn} />
 				<SC.Info $isColumn={isColumn}>
 					<SC.Title $isColumn={isColumn}>
@@ -47,10 +44,9 @@ export const PersonItem: FC<PersonItemProps> = ({
 			</SC.PersonItem>
 			{sortType === 'birthday' ? (
 				<SC.Birthday>
-					{new Date(Date.parse(birthday)).toLocaleString('ru', {
-						month: 'short',
-						day: 'numeric'
-					})}
+					<Text type='date' color='secondary'>
+						{birthdayFormatter(birthday)}
+					</Text>
 				</SC.Birthday>
 			) : null}
 		</SC.Wrapper>
